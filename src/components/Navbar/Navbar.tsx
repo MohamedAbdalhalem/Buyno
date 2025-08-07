@@ -7,7 +7,7 @@ import {
   DropdownItem,
   DropdownDivider,
 } from "flowbite-react";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthenticationContext } from "../../context/AuthenticationContext";
 import { CartContext } from "../../context/CartContext";
