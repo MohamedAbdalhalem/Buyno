@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+@import "flowbite/src/themes/default";
+@custom-variant dark (&:where(.dark, .dark *));
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+    font-family: "Inter", sans-serif ;
+}
+
+.active{
+    color: #1D4ED8 !important;
+}
+
+.slick-prev, .slick-next{
+    display: none !important;
+}  
+
+.product-detials .slick-dots{
+    bottom: 5px;
+}
+.slick-dots li button:before{
+    font-size: 10px !important;
+    color: #1D4ED8 !important;
+}
+.product-detials .product-detials-slider{
+    height: 100% !important;
+}

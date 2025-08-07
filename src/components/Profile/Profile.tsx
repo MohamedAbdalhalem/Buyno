@@ -1,0 +1,35 @@
+import myimage from '../../assets/WhatsApp Image 2025-06-07 at 18.05.41_24cacda3.jpg'
+import { NavLink, Outlet } from 'react-router-dom'
+import useProfileData from './useProfileData'
+
+export default function Profile() {
+    const {isLoading,isProfile,setIsProfile,userData} = useProfileData()
+    if (isLoading) {
+        return (
+            <div role="status" className="animate-pulse px-4 pb-4 pt-20">
+  <div className=" w-fit mx-auto">
+    <svg className="w-25 h-25 mx-auto text-gray-200 block  dark:text-gray-70" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+    </svg>
+    <div className="w-35 h-2.5 my-4 bg-gray-200 rounded-full dark:bg-gray-700 me-3" />
+    <div className="w-35 h-2.5 bg-gray-200 rounded-full dark:bg-gray-700" />
+    <div className="w-50 h-2.5 my-5 bg-gray-200 rounded-full dark:bg-gray-700" />
+    <div className="w-50 h-2.5 bg-gray-200 rounded-full dark:bg-gray-700" />
+  </div>
+              <span className="sr-only">Loading...</span>
+              
+          </div>
+        )
+    }
+    
+  return (
+      <div className='px-4 pb-4 pt-20 max-w-md mx-auto'>
+          <img src={myimage} className='rounded-full mx-auto w-24 h-24 mb-4' alt="" />
+          <h4 className='text-gray-900 mb-4 text-xl text-center dark:text-white'><span className='text-blue-700 font-extrabold'>Name : </span>{userData.name}</h4>
+          <h4 className='text-gray-900  mb-4 text-xl text-center dark:text-white'><span className='text-blue-700 font-extrabold'>Role : </span>{userData.role}</h4>
+          
+      <NavLink onClick={() => setIsProfile(!isProfile)} to={isProfile ? '/profile' : '/profile/update-user-data'} className='text-gray-900 block hover:text-blue-700 dark:text-white font-bold  mb-4 cursor-pointer '>Update user Data</NavLink>
+      <Outlet />
+    </div >
+  )
+}
